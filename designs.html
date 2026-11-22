@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Designs - kedirTech Official</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- =========================================
+         LIGHTBOX STYLES (self-contained)
+         ========================================= -->
+    <style>
+        /* Make design images look clickable */
+        .design-image img {
+            cursor: zoom-in;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+        .design-image:hover img {
+            transform: scale(1.04);
+            filter: brightness(1.1);
+        }
+
+        /* The lightbox overlay (full screen dark background) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+        .lightbox.active {
+            display: flex !important;
+            animation: lightboxFade 0.3s ease;
+        }
+        @keyframes lightboxFade {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* THE ENLARGED IMAGE - made very large */
+        .lightbox-content {
+            max-width: 95vw;          /* up to 95% of screen width */
+            max-height: 85vh;         /* up to 85% of screen height */
+            object-fit: contain;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 60px rgba(123, 47, 247, 0.5);
+            animation: lightboxZoom 0.35s ease;
+        }
+        @keyframes lightboxZoom {
+            from { transform: scale(0.6); opacity: 0; }
+            to   { transform: scale(1);    opacity: 1; }
+        }
+
+        /* Caption under the image */
+        .lightbox-caption {
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            margin-top: 1.2rem;
+            font-size: 1.05rem;
+            text-align: center;
+            max-width: 700px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Close button (X) - top right */
+        .lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 32px;
+            color: #ffffff;
+            font-size: 3.2rem;
+            font-weight: 300;
+            cursor: pointer;
+            user-select: none;
+            line-height: 1;
+            transition: color 0.25s ease, transform 0.25s ease;
+            z-index: 10000;
+        }
+        .lightbox-close:hover {
+            color: #7b2ff7;
+            transform: rotate(90deg);
+        }
+
+        /* Prev / Next arrows */
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ffffff;
+            font-size: 2.8rem;
+            cursor: pointer;
+            user-select: none;
+            padding: 1rem 0.9rem;
+            transition: color 0.25s ease, background 0.25s ease;
+            border-radius: 8px;
+            z-index: 10000;
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-nav:hover {
+            color: #7b2ff7;
+            background: rgba(123, 47, 247, 0.18);
+        }
+        .lightbox-prev:hover { transform: translateY(-50%) translateX(-5px); }
+        .lightbox-next:hover { transform: translateY(-50%) translateX(5px); }
+
+        /* Mobile tweaks */
+        @media (max-width: 480px) {
+            .lightbox-content {
+                max-width: 98vw;
+                max-height: 75vh;
+            }
+            .lightbox-close {
+                font-size: 2.6rem;
+                top: 12px;
+                right: 18px;
+            }
+            .lightbox-nav {
+                font-size: 2rem;
+                padding: 0.8rem 0.6rem;
+            }
+            .lightbox-caption {
+                font-size: 0.9rem;
+                margin-top: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="logo">kedir<span>Tech</span></div>
+        
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="designs.html">Designs</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Designs Page Content -->
+    <section id="designs" class="section-spacing page-top-spacing">
+        <h2 class="section-title">Our <span class="gradient-text">Designs & Projects</span></h2>
+        
+        <div class="designs-grid">
+            
+            <!-- Design 1 -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/design-solar.jpg" alt="Solar Energy Design">
+                </div>
+                <div class="design-text">
+                    <h3>Solar Energy Design</h3>
+                    <p>Complete PV system layouts, load analysis, and panel placement blueprints for maximum energy efficiency.</p>
+                </div>
+            </div>
+
+            <!-- Design 2 -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/design-drives.jpg" alt="Power Electronics & Drives">
+                </div>
+                <div class="design-text">
+                    <h3>Power Electronics & Drives</h3>
+                    <p>Schematics for industrial motor drives, VFDs, and power conversion systems tailored for heavy machinery.</p>
+                </div>
+            </div>
+
+            <!-- Design 3 -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/design-building.jpg" alt="Building Electrical Installation">
+                </div>
+                <div class="design-text">
+                    <h3>Electrical Power Transmission & Distribution</h3>
+                    <p>provide electrical power transmission and distribution solutions, supporting reliable power infrastructure, electrical network installations, and efficient electricity delivery systems..</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Industrial Automation Designs Section -->
+    <section id="industrial-automation-designs" class="section-spacing section-tight">
+        <h2 class="section-title">Industrial <span class="gradient-text">Automation Designs</span></h2>
+        
+        <div class="designs-grid">
+            
+            <!-- Automation Design 1: PLC -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/plc.jpg" alt="Programmable Logic Controller Design">
+                </div>
+                <div class="design-text">
+                    <h3>PLC Design</h3>
+                    <p>Programmable Logic Controller — ladder logic diagrams, I/O mapping, and control cabinet layouts for automated machinery and production lines.</p>
+                </div>
+            </div>
+
+            <!-- Automation Design 2: DCS -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/dcs.jpg" alt="Distributed Control System Design">
+                </div>
+                <div class="design-text">
+                    <h3>DCS Design</h3>
+                    <p>Distributed Control System — process flow architectures, controller redundancy plans, and network topology for continuous plant operations.</p>
+                </div>
+            </div>
+
+            <!-- Automation Design 3: SCADA -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/scad.jpg" alt="Supervisory Control and Data Acquisition Design">
+                </div>
+                <div class="design-text">
+                    <h3>SCADA Design</h3>
+                    <p>Supervisory Control and Data Acquisition — HMI screen layouts, telemetry maps, and remote monitoring configurations for multi-site industrial assets.</p>
+                </div>
+            </div>
+
+            <!-- Automation Design 4: IIoT -->
+            <div class="design-card">
+                <div class="design-image">
+                    <img src="images/iot.jpg" alt="Industrial Internet of Things Design">
+                </div>
+                <div class="design-text">
+                    <h3>IIoT Design</h3>
+                    <p>Industrial Internet of Things — sensor network blueprints, edge gateway topology, and cloud integration diagrams for smart factory enablement.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <p>&copy; 2026 kedirTech Official. All Rights Reserved.</p>
+    </footer>
+
+    <!-- =========================================
+         LIGHTBOX MODAL (the enlarged image)
+         ========================================= -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <span class="lightbox-close" id="lightboxClose" title="Close (Esc)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightboxPrev" title="Previous">&#10094;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+        <span class="lightbox-nav lightbox-next" id="lightboxNext" title="Next">&#10095;</span>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+
+    <!-- =========================================
+         LIGHTBOX JAVASCRIPT
+         ========================================= -->
+    <script>
+        (function () {
+            // Wait until the page is fully loaded
+            window.addEventListener('load', function () {
+
+                // Target images inside .design-image (the design cards)
+                var images = document.querySelectorAll('.design-image img');
+                if (images.length === 0) return;
+
+                var lightbox      = document.getElementById('lightbox');
+                var lightboxImg   = document.getElementById('lightboxImg');
+                var lightboxCaption = document.getElementById('lightboxCaption');
+                var lightboxClose = document.getElementById('lightboxClose');
+                var lightboxPrev  = document.getElementById('lightboxPrev');
+                var lightboxNext  = document.getElementById('lightboxNext');
+
+                var currentIndex = 0;
+
+                function showImage(index) {
+                    // Wrap around so navigation loops
+                    currentIndex = (index + images.length) % images.length;
+                    var img = images[currentIndex];
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightboxCaption.textContent = img.alt;
+                }
+
+                function openLightbox(index) {
+                    lightbox.classList.add('active');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    showImage(index);
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeLightbox() {
+                    lightbox.classList.remove('active');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+
+                // Open lightbox when any design image is clicked
+                for (var i = 0; i < images.length; i++) {
+                    (function (idx) {
+                        images[idx].addEventListener('click', function () {
+                            openLightbox(idx);
+                        });
+                    })(i);
+                }
+
+                // Close button
+                lightboxClose.addEventListener('click', closeLightbox);
+
+                // Prev / Next buttons (stopPropagation so clicking them doesn't close the lightbox)
+                lightboxPrev.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    showImage(currentIndex - 1);
+                });
+                lightboxNext.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    showImage(currentIndex + 1);
+                });
+
+                // Click on the dark background closes (clicking the image itself doesn't)
+                lightbox.addEventListener('click', function (e) {
+                    if (e.target === lightbox) closeLightbox();
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', function (e) {
+                    if (!lightbox.classList.contains('active')) return;
+                    if (e.key === 'Escape')     closeLightbox();
+                    if (e.key === 'ArrowLeft')  showImage(currentIndex - 1);
+                    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+                });
+
+                // Touch swipe support for mobile
+                var touchStartX = 0;
+                lightbox.addEventListener('touchstart', function (e) {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+                lightbox.addEventListener('touchend', function (e) {
+                    if (!lightbox.classList.contains('active')) return;
+                    var diff = e.changedTouches[0].screenX - touchStartX;
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) showImage(currentIndex - 1);
+                        else          showImage(currentIndex + 1);
+                    }
+                }, { passive: true });
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,488 @@
+:root {
+    --bg-color: #0b0d17;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --accent-1: #7b2ff7; /* Purple */
+    --accent-2: #f107a3; /* Pink */
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   NAVIGATION BAR
+   ========================================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 13, 23, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.logo span {
+    color: var(--accent-1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 5%;
+    background: radial-gradient(circle at 50% 50%, #1a1c2e 0%, var(--bg-color) 100%);
+}
+
+.hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(123, 47, 247, 0.4);
+}
+
+/* =========================================
+   GENERAL SECTIONS & SPACING
+   ========================================= */
+.section-spacing {
+    padding: 6rem 5%;
+}
+
+/* Adds top spacing so content doesn't hide under the fixed navbar on inner pages */
+.page-top-spacing {
+    padding-top: 8rem; 
+}
+
+/* Tighter top padding so consecutive sections sit closer together */
+.section-tight {
+    padding-top: 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* =========================================
+   SERVICES GLASS CARDS
+   ========================================= */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 15px;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+}
+
+.glass-card h3 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
+    color: var(--accent-1);
+}
+
+.glass-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Service Card Images */
+.service-img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 10px 10px 0 0; 
+    margin-bottom: 1.2rem; 
+    border-bottom: 1px solid var(--glass-border); 
+    cursor: zoom-in;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.service-img:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+}
+
+/* =========================================
+   DESIGNS / PORTFOLIO GALLERY (SIDE-BY-SIDE)
+   ========================================= */
+.designs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates 2 columns side-by-side */
+    gap: 2rem;
+}
+
+.design-card {
+    display: flex; /* Puts image and text side-by-side */
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.design-card:hover {
+    transform: translateY(-10px);
+}
+
+.design-image {
+    flex: 1; /* Takes up 50% of the card width */
+}
+
+.design-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.design-text {
+    flex: 1; /* Takes up the other 50% */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.design-text h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--accent-1);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.design-text p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Responsive: Stack vertically on smaller screens */
+@media (max-width: 768px) {
+    .designs-grid {
+        grid-template-columns: 1fr; /* 1 column on tablet/mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .design-card {
+        flex-direction: column; /* Stacks image on top of text on very small phones */
+    }
+    .design-image {
+        min-height: 200px;
+    }
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    margin-top: 4rem;
+}
+
+/* =========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+/* Tablets and smaller laptops (Max width 768px) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        height: 100vh;
+        width: 60%; 
+        background: rgba(11, 13, 23, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        transition: right 0.4s ease-in-out;
+        border-left: 1px solid var(--glass-border);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Mobile Phones (Max width 480px) */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .btn-primary {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.9rem;
+    }
+
+    .glass-card {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   LIGHTBOX (Click image to enlarge)
+   ========================================= */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.lightbox.active {
+    display: flex;
+    animation: lightboxFade 0.3s ease;
+}
+
+@keyframes lightboxFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 12px;
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 10px 50px rgba(123, 47, 247, 0.4);
+    animation: lightboxZoom 0.35s ease;
+}
+
+@keyframes lightboxZoom {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+}
+
+.lightbox-caption {
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    text-align: center;
+    max-width: 600px;
+    letter-spacing: 0.3px;
+}
+
+/* Close button (top-right) */
+.lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 32px;
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 300;
+    cursor: pointer;
+    user-select: none;
+    line-height: 1;
+    transition: color 0.25s ease, transform 0.25s ease;
+    z-index: 2001;
+}
+
+.lightbox-close:hover {
+    color: var(--accent-1);
+    transform: rotate(90deg);
+}
+
+/* Prev / Next arrows */
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 1rem 0.8rem;
+    transition: color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+    border-radius: 8px;
+    z-index: 2001;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-nav:hover {
+    color: var(--accent-1);
+    background: rgba(123, 47, 247, 0.15);
+}
+
+.lightbox-prev:hover { transform: translateY(-50%) translateX(-5px); }
+.lightbox-next:hover { transform: translateY(-50%) translateX(5px); }
+
+/* Mobile tweaks for the lightbox */
+@media (max-width: 480px) {
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 70vh;
+    }
+
+    .lightbox-close {
+        font-size: 2.4rem;
+        top: 12px;
+        right: 18px;
+    }
+
+    .lightbox-nav {
+        font-size: 1.8rem;
+        padding: 0.8rem 0.6rem;
+    }
+
+    .lightbox-caption {
+        font-size: 0.85rem;
+        margin-top: 0.8rem;
+    }
+}
